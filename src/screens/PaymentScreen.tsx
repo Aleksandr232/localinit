@@ -2,23 +2,27 @@ import React from "react";
 import {View, Text, StyleSheet, Image, TouchableOpacity, TextInput, SafeAreaView, Button } from "react-native";
 import SvgComponent from "../components/CardSvg";
 
+
+const myImgs = require('../../assets/me.jpg');
+
+
 const PaymentScreen=()=>{
     return(
         <SafeAreaView style={styles.container}>
-                <Image source={{uri: 'https://thumbs.dreamstime.com/b/headshot-portrait-smiling-businessman-posing-office-profile-picture-young-caucasian-suit-glasses-pose-modern-happy-214577125.jpg'}} style={styles.image}/>
-            <Text style={{color: 'gray', fontWeight: 'bold', marginTop: 15}}>PAYING </Text>
-            <Text style={{fontSize: 20, fontWeight: '500', marginBottom: 15}}>Robert Downey, Jr. </Text>
-            <Text style={{fontSize: 55, fontWeight: '500', marginBottom: 15}}>$50.00</Text>
+                <Image source={myImgs} style={styles.image}/>
+            <Text style={{color: 'gray', fontWeight: 'bold', marginTop: 15}}>Пользователь </Text>
+            <Text style={{ color: 'gray',fontSize: 20, fontWeight: '500', marginBottom: 15}}>Александр Мельников </Text>
+            <Text style={{ color: 'gray',fontSize: 55, fontWeight: '500', marginBottom: 15}}>₽150000</Text>
             <TextInput
                 style={styles.textInput}
-                placeholder="Add a note"
+                placeholder="Добавить заметку"
                 placeholderTextColor="gray"
             />
             <SvgComponent/>
             <TouchableOpacity 
-                onPress={() => setIsAuthenticated(false)}
+                /* onPress={() => setIsAuthenticated(false)} */
                 style={styles.btn}>
-                <Text style={styles.text}>Log out</Text>
+                <Text style={styles.text}>Выйти</Text>
             </TouchableOpacity>
         </SafeAreaView>
     )
@@ -27,7 +31,7 @@ const PaymentScreen=()=>{
 const styles=StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'black',
         alignItems: 'center',
     },
     textInput: {
@@ -35,7 +39,7 @@ const styles=StyleSheet.create({
         height: 50,
         padding: 10,
         borderRadius: 15,
-        backgroundColor: '#00000010',
+        backgroundColor: '#fff',
         marginBottom: 20,
     },
     image: {
