@@ -7,7 +7,7 @@ import PaymentScreen from './src/screens/PaymentScreen';
 
 export default function App() {
   const [isBiometric, setIsBiometric] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -31,9 +31,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      { isAuth
-        ?  <PaymentScreen/> 
-        :   <Auth/>
+      { !isAuth ? <PaymentScreen/>  : <Auth onAuthenticate={onAuthenticate} />
       }
     </View> 
   );

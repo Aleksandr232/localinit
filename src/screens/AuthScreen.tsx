@@ -2,14 +2,14 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const myImage = require('../../assets/1.png');
 
-export default function Auth(){
+export default function Auth({onAuthenticate}){
     return(
         <View>
             <Image source={myImage} style={styles.image}/>
             <Text style={styles.title}>sPAY</Text>
             <Text style={styles.description}>Оплата</Text>
             <TouchableOpacity
-               /*  onPress={onAuthnticate} */
+                onPress={onAuthenticate}
                 style={styles.btn}>
                  <Text style={styles.login}>Войти</Text>   
             </TouchableOpacity>
