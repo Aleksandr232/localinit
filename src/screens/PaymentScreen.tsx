@@ -5,8 +5,12 @@ import SvgComponent from "../components/CardSvg";
 
 const myImgs = require('../../assets/me.jpg');
 
+interface PaymentScreenProps{
+    setIsAuthenticated: () => any;
+}
 
-const PaymentScreen=()=>{
+
+export default function PaymentScreen({setIsAuthenticated}: PaymentScreenProps){
     return(
         <SafeAreaView style={styles.container}>
                 <Image source={myImgs} style={styles.image}/>
@@ -20,7 +24,7 @@ const PaymentScreen=()=>{
             />
             <SvgComponent/>
             <TouchableOpacity 
-                /* onPress={() => setIsAuthenticated(false)} */
+                 onPress={setIsAuthenticated} 
                 style={styles.btn}>
                 <Text style={styles.text}>Выйти</Text>
             </TouchableOpacity>
@@ -72,4 +76,3 @@ const styles=StyleSheet.create({
 
 })
 
-export default PaymentScreen

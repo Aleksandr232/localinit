@@ -1,8 +1,13 @@
+import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const myImage = require('../../assets/1.png');
 
-export default function Auth({onAuthenticate}){
+interface AuthProps{
+    onAuthenticate: ()=> any;
+}
+
+export default function Auth({onAuthenticate}:AuthProps){
     return(
         <View>
             <Image source={myImage} style={styles.image}/>

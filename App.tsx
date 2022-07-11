@@ -1,39 +1,40 @@
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import * as LocalAuth from 'expo-local-authentication'
-
 import Auth from './src/screens/AuthScreen';
 import PaymentScreen from './src/screens/PaymentScreen';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 export default function App() {
-  const [isBiometric, setIsBiometric] = useState(false);
-  const [isAuth, setIsAuth] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      const compatible = await LocalAuth.hasHardwareAsync();
-      setIsBiometric(compatible);
-    })();
-  });
-
-  function onAuthenticate () {
-    const auth = LocalAuth.authenticateAsync({
-      promptMessage: 'Authenticate',
-      fallbackLabel: 'Enter Password',
-    });
-    auth.then(result => {
-      setIsAuth(result.success);
-        console.log(result);
-    }
-    );
-  }
+  const [isBiometricSupported, setIsBiometricSupported] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   
+    // Check if hardware supports biometrics
+    useEffect(() => {
+      (async () => {
+        const compatible = await LocalAuthentication.hasHardwareAsync();
+        setIsBiometricSupported(compatible);
+      })();
+    });
+
+    function onAuthenticate () {
+      const auth = LocalAuthentication.authenticateAsync({
+        promptMessage: 'Authenticate',
+        fallbackLabel: 'Enter Password',
+      });
+      auth.then(result => {
+        setIsAuthenticated(result.success);
+          console.log(result);
+      }
+      );
+    }
 
   return (
     <View style={styles.container}>
-      { !isAuth ? <PaymentScreen/>  : <Auth onAuthenticate={onAuthenticate} />
+      { !isAuthenticated 
+        ? <PaymentScreen setIsAuthenticated = {setIsAuthenticated} />
+        : <Auth onAuthenticate={onAuthenticate} />
       }
-    </View> 
+    </View>
   );
 }
 
