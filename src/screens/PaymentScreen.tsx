@@ -5,12 +5,12 @@ import SvgComponent from "../components/CardSvg";
 
 const myImgs = require('../../assets/me.jpg');
 
-interface PaymentScreenProps{
-    setIsAuthenticated: () => any;
-}
+ interface PaymentScreenProps{
+    setIsAuthenticated:  never;
+}   
 
 
-export default function PaymentScreen({setIsAuthenticated}: PaymentScreenProps){
+export default function PaymentScreen({setIsAuthenticated}:PaymentScreenProps){
     return(
         <SafeAreaView style={styles.container}>
                 <Image source={myImgs} style={styles.image}/>

@@ -6,7 +6,7 @@ import * as LocalAuthentication from 'expo-local-authentication';
 
 export default function App() {
   const [isBiometricSupported, setIsBiometricSupported] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   
     // Check if hardware supports biometrics
     useEffect(() => {
