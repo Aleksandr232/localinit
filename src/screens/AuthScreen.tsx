@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 const myImage = require('../../assets/1.png');
 
 interface AuthProps{
-    onAuthenticate: ()=> void;
+    onAuthenticate:  any;
 }
 
 export default function Auth({onAuthenticate}:AuthProps){

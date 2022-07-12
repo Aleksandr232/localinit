@@ -6,7 +6,7 @@ import SvgComponent from "../components/CardSvg";
 const myImgs = require('../../assets/me.jpg');
 
  interface PaymentScreenProps{
-    setIsAuthenticated:  never;
+    setIsAuthenticated: any;
 }   
 
 
